@@ -72,6 +72,89 @@ intakebottom.move(0);
 intakebottom2.move(0);
 intakemiddle.move(0);
 }
+///
+// another auton coded in from vex vr
+///
+void auton_vexvr() {
+  chassis.drive_mode_set(ez::DISABLE);
+  // 8609Z auton code here!
+  // delay code pros::delay(time in ms);
+  chassis.pid_drive_set(33_in, 110);
+  chassis.pid_wait();
+  chassis.pid_turn_set(90_deg, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(2_in, 48);
+  chassis.pid_wait();
+  intakebottom.move(127);
+  intakebottom2.move(127);
+  intakemiddle.move(127);
+  pros::delay(3000);
+  intakebottom.move(0);
+  intakebottom2.move(0);
+  intakemiddle.move(0);
+  chassis.pid_drive_set(-3_in, 48);
+  chassis.pid_wait();
+  chassis.pid_turn_set(270_deg, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(22_in, 110);
+  chassis.pid_wait();
+  intakebottom.move(127);
+  intakebottom2.move(127);
+  intakemiddle.move(127);
+  intaketop.move(-127);
+  intaketop2.move(-127);
+  pros::delay(5000);
+  intakebottom.move(0);
+  intakebottom2.move(0);
+  intakemiddle.move(0);
+  intaketop.move(0);
+  intaketop2.move(0);
+  chassis.pid_drive_set(-17_in, 48);
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-94_in, 110);
+  chassis.pid_wait();
+  chassis.pid_turn_set(90_deg, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-6_in, 48);
+  chassis.pid_wait();
+  intakebottom.move(127);
+  intakebottom2.move(127);
+  intakemiddle.move(-127);
+  pros::delay(3000);
+  intakebottom.move(0);
+  intakebottom2.move(0);
+  intakemiddle.move(0);
+  chassis.pid_drive_set(2_in, 48);
+  chassis.pid_wait();
+  pros::delay(300);
+  chassis.pid_turn_set(270_deg, 90);
+  chassis.pid_drive_set(22_in, 110);
+  chassis.pid_wait();
+  intakebottom.move(127);
+  intakebottom2.move(127);
+  intakemiddle.move(-127);
+  intaketop.move(-127);
+  intaketop2.move(-127);
+  pros::delay(5000);
+  intakebottom.move(0);
+  intakebottom2.move(0);
+  intakemiddle.move(0);
+  intaketop.move(0);
+  intaketop2.move(0);
+  chassis.pid_drive_set(17_in, 48);
+  chassis.pid_wait();
+  chassis.pid_turn_set(40_deg, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(18_in, 48);
+  chassis.pid_wait();
+  chassis.pid_turn_set(0_deg, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(25_in, 110);
+  chassis.pid_wait();
+  pros::delay(3000);
+}
 
 ///
 // Drive Example
