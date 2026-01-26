@@ -294,17 +294,17 @@ void opcontrol() {
     }
     if (master.get_digital(DIGITAL_B)) {
     //Wing Piston Control
-      wingPiston.set_value(true);
+      wingPiston.set(true);
     }
     else {
-      wingPiston.set_value(false);
+      wingPiston.set(false);
     }
     if (master.get_digital(DIGITAL_DOWN)) {
     //Wing Piston Control
-      alignerPiston.set_value(true);
+      alignerPiston.set(true);
     }
     else {
-      alignerPiston.set_value(false);
+      alignerPiston.set(false);
     }
     
     // . . .

@@ -64,13 +64,32 @@ chassis.pid_wait();
 
 intakebottom.move(127);
 intakebottom2.move(127);
-intakemiddle.move(127);
+intakemiddle.move(-127);
 chassis.pid_drive_set(16_in, 48);
 chassis.pid_wait_quick_chain();
-pros::delay(400);
+pros::delay(1500);
 intakebottom.move(0);
 intakebottom2.move(0);
 intakemiddle.move(0);
+chassis.pid_drive_set(-3_in, 48);
+chassis.pid_wait();
+chassis.pid_turn_set(270_deg, 90);
+chassis.pid_wait();
+chassis.pid_drive_set(22_in, 110);
+chassis.pid_wait();
+intakebottom.move(127);
+intakebottom2.move(127);
+intakemiddle.move(127);
+intaketop.move(-127);
+intaketop2.move(-127);
+pros::delay(5000);
+intakebottom.move(0);
+intakebottom2.move(0);
+intakemiddle.move(0);
+intaketop.move(0);
+intaketop2.move(0);
+chassis.pid_drive_set(-17_in, 48);
+chassis.pid_wait();
 }
 ///
 // another auton coded in from vex vr
