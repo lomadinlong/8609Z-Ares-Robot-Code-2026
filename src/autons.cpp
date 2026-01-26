@@ -87,7 +87,7 @@ void auton_vexvr() {
   chassis.pid_wait();
   intakebottom.move(127);
   intakebottom2.move(127);
-  intakemiddle.move(127);
+  intakemiddle.move(-127);
   pros::delay(3000);
   intakebottom.move(0);
   intakebottom2.move(0);
@@ -134,7 +134,7 @@ void auton_vexvr() {
   chassis.pid_wait();
   intakebottom.move(127);
   intakebottom2.move(127);
-  intakemiddle.move(-127);
+  intakemiddle.move(127);
   intaketop.move(-127);
   intaketop2.move(-127);
   pros::delay(5000);
