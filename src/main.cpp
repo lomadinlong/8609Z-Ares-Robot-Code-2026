@@ -259,14 +259,16 @@ void opcontrol() {
     // Put more user control code here!
     
     if (master.get_digital(DIGITAL_L2)) {
-     intakebottom.move(127);
+     //Intake into Hopper
+      intakebottom.move(127);
      intakebottom2.move(127);
      intakemiddle.move(-127);
     }  
     else if(master.get_digital(DIGITAL_L1)) {
+      //Outtake to bottom goal
       intakebottom.move(-127);
-      intakebottom2.move(127);
-      intakemiddle.move(-127);
+      intakebottom2.move(-127);
+      intakemiddle.move(127);
     }
       else {
       intakebottom.move(0);
