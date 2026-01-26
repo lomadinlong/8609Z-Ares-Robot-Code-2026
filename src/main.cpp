@@ -292,8 +292,20 @@ void opcontrol() {
       intaketop.move(0);
       intaketop2.move(0);
     }
-
-    
+    if (master.get_digital(DIGITAL_B)) {
+    //Wing Piston Control
+      wingPiston.set_value(true);
+    }
+    else {
+      wingPiston.set_value(false);
+    }
+    if (master.get_digital(DIGITAL_DOWN)) {
+    //Wing Piston Control
+      alignerPiston.set_value(true);
+    }
+    else {
+      alignerPiston.set_value(false);
+    }
     
     // . . .
 
