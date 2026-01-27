@@ -74,7 +74,7 @@ intakemiddle.move(0);
 chassis.pid_drive_set(-3_in, 48);
 chassis.pid_wait();
 chassis.pid_turn_set(270_deg, 90);
-alignerPiston.set_value(true);
+alignerPiston.set(true);
 chassis.pid_wait();
 chassis.pid_drive_set(22_in, 110);
 chassis.pid_wait();

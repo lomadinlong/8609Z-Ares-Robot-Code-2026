@@ -257,18 +257,40 @@ void opcontrol() {
 
     // . . .
     // Put more user control code here!
+    // Speed reduction button
+if (master.get_digital(DIGITAL_RIGHT)) {
+  // Reduce speed to 60/128 when Y is held
+  chassis.opcontrol_speed_max_set(60);  // 0-127, where 127 is full speed
+} else {
+  chassis.opcontrol_speed_max_set(127);  // Full speed
+}
     
     if (master.get_digital(DIGITAL_L2)) {
      //Intake into Hopper
       intakebottom.move(127);
      intakebottom2.move(127);
      intakemiddle.move(-127);
+     pros::delay(100);
+     if (intakemiddle.get_actual_velocity() > -10) {
+        intakemiddle.move(0);
+        pros::delay(300);
+        intakemiddle.move(-127);
+        pros::delay(200);
+      }
+
     }  
     else if(master.get_digital(DIGITAL_L1)) {
       //Outtake to bottom goal
       intakebottom.move(-127);
       intakebottom2.move(-127);
       intakemiddle.move(127);
+      pros::delay(100);
+      if (intakemiddle.get_actual_velocity() < 10) {
+        intakemiddle.move(0);
+        pros::delay(300);
+        intakemiddle.move(127);
+        pros::delay(200);
+      }
     }
     else if (master.get_digital(DIGITAL_R1)) {
       //Outtake to Middle Goal
@@ -276,6 +298,13 @@ void opcontrol() {
       intakebottom2.move(127);
       intakemiddle.move(127);
       intaketop.move(127);
+      pros::delay(100);
+      if (intakemiddle.get_actual_velocity() < 10) {
+        intakemiddle.move(0);
+        pros::delay(300);
+        intakemiddle.move(127);
+        pros::delay(200);
+      }
     }
     else if (master.get_digital(DIGITAL_R2)) {
       //Outtake to Top Goal
@@ -284,6 +313,13 @@ void opcontrol() {
       intakemiddle.move(127);
       intaketop.move(-127);
       intaketop2.move(-127);
+      pros::delay(100);
+      if (intakemiddle.get_actual_velocity() < 10) {
+        intakemiddle.move(0);
+        pros::delay(300);
+        intakemiddle.move(127);
+        pros::delay(200);
+      }
     }
     else {
       intakebottom.move(0);
