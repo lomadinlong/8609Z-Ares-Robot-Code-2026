@@ -8,7 +8,7 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-16, -17},     // Left Chassis Ports (negative port will reverse it!)
+    {-5, -17},     // Left Chassis Ports (negative port will reverse it!)
     {18, 19},  // Right Chassis Ports (negative port will reverse it!)
 
     3,      // IMU Port
@@ -298,7 +298,7 @@ if (master.get_digital(DIGITAL_RIGHT)) {
       intakebottom2.move(127);
       intakemiddle.move(127);
       intaketop.move(127);
-      alignerPiston.set(true);
+
       pros::delay(100);
       if (intakemiddle.get_actual_velocity() < 10) {
         intakemiddle.move(0);
@@ -337,11 +337,11 @@ if (master.get_digital(DIGITAL_RIGHT)) {
     else {
       wingPiston.set(false);
     }
-    if (master.get_digital(DIGITAL_DOWN)) {
+    if ((master.get_digital(DIGITAL_DOWN)) || (master.get_digital(DIGITAL_R2)) || (master.get_digital(DIGITAL_R1))) {
     //Aligner Piston Control
       alignerPiston.set(true);
     }
-    else if (!master.get_digital(DIGITAL_R1) || !master.get_digital(DIGITAL_R2) ) {
+    else {
       alignerPiston.set(false);
     }
   }  

@@ -49,14 +49,14 @@ void default_constants() {
 }
 
 ///
-// Skills Auton
+// 15 Second autonomous
 ///
 void auton_skills() {
   chassis.drive_mode_set(ez::DISABLE);
   // 8609Z auton code here!
   // delay code pros::delay(time in ms);
   
-chassis.pid_drive_set(39_in, 110);
+chassis.pid_drive_set(37_in, 64);
 chassis.pid_wait();
 
 chassis.pid_turn_set(90_deg, 90);
@@ -67,16 +67,16 @@ intakebottom2.move(127);
 intakemiddle.move(-127);
 chassis.pid_drive_set(16_in, 48);
 chassis.pid_wait_quick_chain();
-pros::delay(1500);
+pros::delay(800);
 intakebottom.move(0);
 intakebottom2.move(0);
-intakemiddle.move(0);
-chassis.pid_drive_set(-3_in, 48);
+chassis.pid_drive_set(-5_in, 48);
 chassis.pid_wait();
 chassis.pid_turn_set(270_deg, 90);
-alignerPiston.set(true);
 chassis.pid_wait();
-chassis.pid_drive_set(22_in, 110);
+alignerPiston.set(true);
+pros::delay(500);
+chassis.pid_drive_set(22_in, 96);
 chassis.pid_wait();
 intakebottom.move(127);
 intakebottom2.move(127);
@@ -89,7 +89,7 @@ intakebottom2.move(0);
 intakemiddle.move(0);
 intaketop.move(0);
 intaketop2.move(0);
-chassis.pid_drive_set(-17_in, 48);
+chassis.pid_drive_set(-15_in, 48);
 chassis.pid_wait();
 }
 ///
@@ -99,11 +99,12 @@ void auton_vexvr() {
   chassis.drive_mode_set(ez::DISABLE);
   // 8609Z auton code here!
   // delay code pros::delay(time in ms);
-  chassis.pid_drive_set(33_in, 110);
+  alignerPiston.set(false);
+  chassis.pid_drive_set(34_in, 110);
   chassis.pid_wait();
-  chassis.pid_turn_set(90_deg, 90);
+  chassis.pid_turn_set(87_deg, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(2_in, 48);
+  chassis.pid_drive_set(16_in, 48);
   chassis.pid_wait();
   intakebottom.move(127);
   intakebottom2.move(127);
@@ -114,8 +115,10 @@ void auton_vexvr() {
   intakemiddle.move(0);
   chassis.pid_drive_set(-3_in, 48);
   chassis.pid_wait();
-  chassis.pid_turn_set(270_deg, 90);
+  chassis.pid_turn_set(264_deg, 90);
   chassis.pid_wait();
+  alignerPiston.set(true);
+  pros::delay(500);
   chassis.pid_drive_set(22_in, 110);
   chassis.pid_wait();
   intakebottom.move(127);
@@ -129,15 +132,16 @@ void auton_vexvr() {
   intakemiddle.move(0);
   intaketop.move(0);
   intaketop2.move(0);
-  chassis.pid_drive_set(-17_in, 48);
+  alignerPiston.set(false);
+  chassis.pid_drive_set(-10_in, 48);
   chassis.pid_wait();
   chassis.pid_turn_set(180_deg, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(94_in, 110);
+  chassis.pid_drive_set(97_in, 110);
   chassis.pid_wait();
   chassis.pid_turn_set(90_deg, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(6_in, 48);
+  chassis.pid_drive_set(16_in, 48);
   chassis.pid_wait();
   intakebottom.move(127);
   intakebottom2.move(127);
@@ -152,6 +156,7 @@ void auton_vexvr() {
   chassis.pid_turn_set(270_deg, 90);
   chassis.pid_drive_set(22_in, 110);
   chassis.pid_wait();
+  alignerPiston.set(true);
   intakebottom.move(127);
   intakebottom2.move(127);
   intakemiddle.move(127);
@@ -163,6 +168,7 @@ void auton_vexvr() {
   intakemiddle.move(0);
   intaketop.move(0);
   intaketop2.move(0);
+  alignerPiston.set(false);
   chassis.pid_drive_set(-17_in, 48);
   chassis.pid_wait();
   chassis.pid_turn_set(40_deg, 90);
@@ -171,7 +177,7 @@ void auton_vexvr() {
   chassis.pid_wait();
   chassis.pid_turn_set(180_deg, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(-25_in, 110);
+  chassis.pid_drive_set(-25_in, 128);
   chassis.pid_wait();
   pros::delay(3000);
 }
