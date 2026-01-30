@@ -264,7 +264,7 @@ if (master.get_digital(DIGITAL_RIGHT)) {
 } else {
   chassis.opcontrol_speed_max_set(127);  // Full speed
 }
-    
+  if(!pros::competition::is_autonomous()) {
     if (master.get_digital(DIGITAL_L2)) {
      //Intake into Hopper
       intakebottom.move(127);
@@ -344,7 +344,7 @@ if (master.get_digital(DIGITAL_RIGHT)) {
     else if (!master.get_digital(DIGITAL_R1) || !master.get_digital(DIGITAL_R2) ) {
       alignerPiston.set(false);
     }
-    
+  }  
     // . . .
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME

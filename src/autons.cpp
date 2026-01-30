@@ -133,11 +133,11 @@ void auton_vexvr() {
   chassis.pid_wait();
   chassis.pid_turn_set(180_deg, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(-94_in, 110);
+  chassis.pid_drive_set(94_in, 110);
   chassis.pid_wait();
   chassis.pid_turn_set(90_deg, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(-6_in, 48);
+  chassis.pid_drive_set(6_in, 48);
   chassis.pid_wait();
   intakebottom.move(127);
   intakebottom2.move(127);
@@ -146,7 +146,7 @@ void auton_vexvr() {
   intakebottom.move(0);
   intakebottom2.move(0);
   intakemiddle.move(0);
-  chassis.pid_drive_set(2_in, 48);
+  chassis.pid_drive_set(-2_in, 48);
   chassis.pid_wait();
   pros::delay(300);
   chassis.pid_turn_set(270_deg, 90);
@@ -163,15 +163,15 @@ void auton_vexvr() {
   intakemiddle.move(0);
   intaketop.move(0);
   intaketop2.move(0);
-  chassis.pid_drive_set(17_in, 48);
+  chassis.pid_drive_set(-17_in, 48);
   chassis.pid_wait();
   chassis.pid_turn_set(40_deg, 90);
   chassis.pid_wait();
   chassis.pid_drive_set(18_in, 48);
   chassis.pid_wait();
-  chassis.pid_turn_set(0_deg, 90);
+  chassis.pid_turn_set(180_deg, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(25_in, 110);
+  chassis.pid_drive_set(-25_in, 110);
   chassis.pid_wait();
   pros::delay(3000);
 }
